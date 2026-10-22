@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu XatSpace • Orkut vibes</title>
+<style>
+:root{--blue:#5b7fbd;--deep:#31578f;--pale:#eaf1fb;--line:#c7d6ec;--ink:#26354b;--pink:#f5dce9}
+*{box-sizing:border-box}
+body{margin:0;background:#dfe8f4;color:var(--ink);font:14px Arial,Helvetica,sans-serif;background-image:linear-gradient(135deg,#dfe8f4,#f7eaf2)}
+a{color:#315b9b;text-decoration:none}a:hover{text-decoration:underline}
+.top{background:linear-gradient(#7899ce,#456da8);color:white;padding:14px max(16px,calc((100% - 1000px)/2));box-shadow:0 2px 8px #52698a55}
+.brand{font-size:25px;font-weight:bold;letter-spacing:-1px}.brand span{color:#ffe6f2}.tagline{font-size:12px;margin-top:3px;opacity:.9}
+.nav{background:#fff;border-bottom:1px solid var(--line);padding:0 max(16px,calc((100% - 1000px)/2));display:flex;gap:4px;flex-wrap:wrap}
+.nav a{padding:12px 13px;display:block;font-weight:bold;font-size:13px}.nav a.active,.nav a:hover{background:var(--pale);text-decoration:none;border-bottom:3px solid var(--blue)}
+.wrap{max-width:1000px;margin:20px auto;padding:0 12px}
+.hero{background:#fff;border:1px solid var(--line);border-radius:9px;padding:18px;display:flex;gap:18px;align-items:center;box-shadow:0 3px 10px #455b7820}
+.avatar{width:130px;height:130px;flex:0 0 130px;border-radius:8px;border:4px solid white;outline:1px solid var(--line);object-fit:cover;background:linear-gradient(135deg,#d7e5fa,#f4dce9)}
+.hero h1{margin:0 0 7px;font-size:26px;color:#31578f}.status{display:inline-block;background:#e7f4e9;color:#347345;padding:5px 9px;border-radius:20px;font-size:12px}.hero p{margin:10px 0;color:#55647a;line-height:1.5}
+.layout{display:grid;grid-template-columns:270px 1fr;gap:16px;margin-top:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;margin-bottom:15px;overflow:hidden;box-shadow:0 2px 8px #455b7810}
+.card h2{font-size:15px;margin:0;background:linear-gradient(#f6f9fe,#e7effa);border-bottom:1px solid var(--line);padding:11px 13px;color:#31578f}
+.pad{padding:13px}.small{font-size:12px;color:#68778d;line-height:1.55}
+.info{display:grid;grid-template-columns:90px 1fr;gap:8px;padding:6px 0;border-bottom:1px dotted #d7e0ed}.info:last-child{border:0}.label{color:#748198}
+.music{display:flex;align-items:center;gap:12px}.disc{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle,#fff 0 10%,#7a94c5 11% 22%,#253d68 23% 100%);flex:0 0 auto;animation:spin 5s linear infinite;animation-play-state:paused}.disc.playing{animation-play-state:running}@keyframes spin{to{transform:rotate(360deg)}}
+button,.button{border:0;border-radius:5px;background:#5279b7;color:white;padding:8px 11px;font-weight:bold;cursor:pointer;font-size:12px}button:hover,.button:hover{background:#345b98}
+input,textarea{width:100%;border:1px solid #c9d7e9;border-radius:5px;padding:9px;font:inherit;margin:5px 0 9px;background:#fbfdff}textarea{min-height:70px;resize:vertical}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;padding:10px 12px;background:#f7faff;border-bottom:1px solid var(--line)}.tab{background:#e6edf8;color:#355a91}.tab.active{background:#5279b7;color:#fff}
+.panel{display:none;padding:14px}.panel.active{display:block}
+.post{border-bottom:1px solid #e7edf5;padding:12px 0;line-height:1.55}.post:first-child{padding-top:0}.post:last-child{border:0}
+.friendgrid,.communitygrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.person,.community{border:1px solid #e0e8f3;border-radius:7px;padding:10px;text-align:center;background:#fbfdff}.mini{width:58px;height:58px;border-radius:50%;object-fit:cover;background:linear-gradient(135deg,#d7e5fa,#f4dce9);display:block;margin:0 auto 7px;border:2px solid white;outline:1px solid #d2deef}.community .mini{border-radius:8px}
+.badge{display:inline-block;background:#f7e5ef;color:#8a4e70;border-radius:4px;padding:3px 6px;font-size:11px;margin:2px}
+.quote{border-left:4px solid #8aa5d2;padding:8px 12px;background:#f6f9fe;font-style:italic;color:#566780}
+footer{text-align:center;padding:22px;color:#6b7a91;font-size:12px}
+.hidden{display:none!important}
+@media(max-width:720px){.layout{grid-template-columns:1fr}.hero{align-items:flex-start}.avatar{width:95px;height:95px;flex-basis:95px}.hero h1{font-size:22px}.friendgrid,.communitygrid{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{margin-top:12px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">xat<span>space</span></div><div class="tagline">Seu cantinho na internet • nostalgia estilo Orkut 💙</div></header>
+<nav class="nav">
+<a href="#inicio" class="active" data-page="inicio">Início</a><a href="#perfil" data-page="perfil">Perfil</a><a href="#amigos" data-page="amigos">Amigos</a><a href="#comunidades" data-page="comunidades">Comunidades</a><a href="#recados" data-page="recados">Recados</a><a href="#depoimentos" data-page="depoimentos">Depoimentos</a><a href="#fotos" data-page="fotos">Fotos</a>
+</nav>
+<main class="wrap">
+<section class="hero">
+<img id="avatar" class="avatar" alt="Sua foto de perfil" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Crect width='150' height='150' fill='%23dce8fa'/%3E%3Ccircle cx='75' cy='54' r='28' fill='%2394acd3'/%3E%3Cpath d='M20 145 Q25 88 75 88 Q125 88 130 145' fill='%2394acd3'/%3E%3Ctext x='75' y='137' font-size='10' text-anchor='middle' fill='white'%3ESUA FOTO AQUI%3C/text%3E%3C/svg%3E">
+<div><h1 id="displayName">Seu nome aqui</h1><span class="status">● Online no xat</span><p id="headline">“A vida fica melhor quando a gente coleciona boas histórias.”</p><span class="badge">🎮 Games</span><span class="badge">🎸 Música</span><span class="badge">🖤 Nostalgia</span><p class="small">Fortaleza, Brasil • Desde os tempos de internet discada ✨</p></div>
+</section>
+<div class="layout">
+<aside>
+<section class="card"><h2>🎵 Minha música</h2><div class="pad">
+<div class="music"><div id="disc" class="disc"></div><div><strong id="songTitle">Sua música favorita</strong><div class="small" id="songArtist">Artista aqui</div></div></div>
+<audio id="audio" controls style="width:100%;margin-top:12px"></audio>
+<label class="small" for="audioFile">Escolher música do seu dispositivo</label><input id="audioFile" type="file" accept="audio/*">
+<p class="small">A música só toca após você iniciar. Para compartilhar com outras pessoas, use um arquivo/URL de áudio público com permissão de uso.</p>
+<input id="songName" placeholder="Nome da música"><input id="artistName" placeholder="Artista"><button id="saveSong">Atualizar título</button>
+</div></section>
+<section class="card"><h2>👤 Sobre mim</h2><div class="pad">
+<div class="info"><span class="label">Nome</span><strong id="sideName">Seu nome</strong></div><div class="info"><span class="label">Aniversário</span><span>DD/MM</span></div><div class="info"><span class="label">Relacionamento</span><span>Deixa acontecer 💫</span></div><div class="info"><span class="label">Quem sou</span><span>Um pouco de tudo</span></div>
+<p class="small">Edite as informações no código para deixar com a sua cara.</p>
+</div></section>
+<section class="card"><h2>💬 Frase do perfil</h2><div class="pad"><div class="quote">“Saudade de quando um scrap deixava o dia mais feliz.”</div></div></section>
+</aside>
+<section>
+<div class="card"><div class="tabs">
+<button class="tab active" data-tab="mural">Mural</button><button class="tab" data-tab="perfilPanel">Perfil</button><button class="tab" data-tab="friendsPanel">Amigos</button><button class="tab" data-tab="communitiesPanel">Comunidades</button><button class="tab" data-tab="scrapsPanel">Recados</button><button class="tab" data-tab="testimonialsPanel">Depoimentos</button><button class="tab" data-tab="photosPanel">Fotos</button>
+</div>
+<div id="mural" class="panel active"><h3>📌 Bem-vindo(a) ao meu espaço!</h3><p>Esse é meu cantinho com cara de Orkut: música, amigos, comunidades e recados. Deixe um alô! 💙</p><div class="post"><strong>Última atualização</strong><div class="small">Hoje • Meu xatspace, minhas memórias.</div></div><div class="post"><strong>O que estou fazendo?</strong><p>Personalizando meu perfil e matando a saudade da internet antiga. 😎</p></div></div>
+<div id="perfilPanel" class="panel"><h3>Quem sou eu</h3><p>Escreva aqui sua apresentação, seus gostos, sonhos, filmes favoritos e tudo que quiser compartilhar.</p><div class="info"><span class="label">Filmes/séries</span><span>Terror, aventura e suspense</span></div><div class="info"><span class="label">Música</span><span>Minha trilha sonora</span></div><div class="info"><span class="label">Uma frase</span><span>Seja você, sem versão beta.</span></div></div>
+<div id="friendsPanel" class="panel"><h3>⭐ Meus amigos</h3><p class="small">Exemplos para você substituir pelos seus amigos.</p><div class="friendgrid" id="friendGrid"></div><div style="margin-top:12px"><input id="friendInput" placeholder="Nome do amigo"><button id="addFriend">Adicionar amigo</button></div></div>
+<div id="communitiesPanel" class="panel"><h3>🌎 Minhas comunidades</h3><div class="communitygrid" id="communityGrid"></div><div style="margin-top:12px"><input id="communityInput" placeholder="Nome da comunidade"><button id="addCommunity">Criar comunidade</button></div></div>
+<div id="scrapsPanel" class="panel"><h3>📨 Recados</h3><p class="small">Deixe um recado de demonstração. Esta versão é local: não envia para outros visitantes.</p><input id="scrapName" placeholder="Seu nome"><textarea id="scrapText" placeholder="Escreva seu recado..."></textarea><button id="addScrap">Deixar recado</button><div id="scrapList"></div></div>
+<div id="testimonialsPanel" class="panel"><h3>💌 Depoimentos</h3><p class="small">Aquele espaço clássico para os amigos dizerem o quanto você é especial.</p><div class="quote">“Pessoa gente boa, parceira e cheia de histórias!”</div><div class="quote" style="margin-top:9px">“Amizade que nem o tempo e nem a distância apagam.”</div><p class="small">Os depoimentos são exemplos editáveis.</p></div>
+<div id="photosPanel" class="panel"><h3>📸 Minhas fotos</h3><p class="small">Escolha uma foto para usar no perfil. Você também pode selecionar imagens para a galeria abaixo.</p><input type="file" id="profileFile" accept="image/*"><label class="small">Adicionar fotos à galeria</label><input type="file" id="galleryFiles" accept="image/*" multiple><div id="gallery" class="friendgrid"></div></div>
+</div>
+<section class="card"><h2>🛠️ Personalizar meu espaço</h2><div class="pad"><label class="small">Seu nome/apelido</label><input id="nameInput" placeholder="Como quer aparecer no perfil"><label class="small">Frase de apresentação</label><input id="headlineInput" placeholder="Uma frase que combina com você"><button id="saveProfile">Salvar alterações nesta página</button><p class="small">As alterações e os recados ficam apenas nesta página aberta; para manter tudo permanentemente, edite o HTML ou hospede uma versão com banco de dados.</p></div></section>
+</section>
+</div>
+<footer>Feito com 💙 e nostalgia • Modelo personalizável para seu perfil xat.com</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function switchTab(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id))}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('active'));a.classList.add('active');const map={inicio:'mural',perfil:'perfilPanel',amigos:'friendsPanel',comunidades:'communitiesPanel',recados:'scrapsPanel',depoimentos:'testimonialsPanel',fotos:'photosPanel'};switchTab(map[a.dataset.page]||'mural')}));
+const placeholder='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect width="100" height="100" rx="50" fill="%23dce8fa"/%3E%3Ccircle cx="50" cy="37" r="18" fill="%2394acd3"/%3E%3Cpath d="M12 98 Q15 61 50 61 Q85 61 88 98" fill="%2394acd3"/%3E%3C/svg%3E';
+let friends=['Ana','Meu parceiro','Amigo(a) especial'], communities=['Eu amo música 🎸','Filmes de terror 👻','Nostalgia Orkut 💙'];
+function drawFriends(){ $('friendGrid').innerHTML='';friends.forEach(n=>{let d=document.createElement('div');d.className='person';d.innerHTML=`<img class="mini" src="${placeholder}"><strong></strong><div class="small">Amigo(a)</div>`;d.querySelector('strong').textContent=n;$('friendGrid').appendChild(d)})}
+function drawCommunities(){ $('communityGrid').innerHTML='';communities.forEach(n=>{let d=document.createElement('div');d.className='community';d.innerHTML=`<img class="mini" src="${placeholder}"><strong></strong><div class="small">Comunidade</div>`;d.querySelector('strong').textContent=n;$('communityGrid').appendChild(d)})}
+drawFriends();drawCommunities();
+$('addFriend').onclick=()=>{let n=$('friendInput').value.trim();if(n){friends.push(n);drawFriends();$('friendInput').value=''}};
+$('addCommunity').onclick=()=>{let n=$('communityInput').value.trim();if(n){communities.push(n);drawCommunities();$('communityInput').value=''}};
+$('saveProfile').onclick=()=>{let n=$('nameInput').value.trim(),h=$('headlineInput').value.trim();if(n){$('displayName').textContent=n;$('sideName').textContent=n}if(h)$('headline').textContent='“'+h+'”'};
+$('profileFile').onchange=e=>{const f=e.target.files[0];if(f)$('avatar').src=URL.createObjectURL(f)};
+$('audioFile').onchange=e=>{const f=e.target.files[0];if(f){$('audio').src=URL.createObjectURL(f);$('songTitle').textContent=f.name.replace(/\.[^.]+$/,'');$('disc').classList.remove('playing')}};
+$('audio').onplay=()=>$('disc').classList.add('playing');$('audio').onpause=()=>$('disc').classList.remove('playing');
+$('saveSong').onclick=()=>{if($('songName').value.trim())$('songTitle').textContent=$('songName').value.trim();if($('artistName').value.trim())$('songArtist').textContent=$('artistName').value.trim()};
+$('addScrap').onclick=()=>{let n=$('scrapName').value.trim()||'Visitante',t=$('scrapText').value.trim();if(!t)return;let d=document.createElement('div');d.className='post';let b=document.createElement('strong');b.textContent=n+' deixou um recado';let p=document.createElement('p');p.textContent=t;d.append(b,p);$('scrapList').prepend(d);$('scrapText').value=''};
+$('galleryFiles').onchange=e=>{[...e.target.files].forEach(f=>{let img=document.createElement('img');img.className='mini';img.style.width='100%';img.style.height='auto';img.style.borderRadius='7px';img.src=URL.createObjectURL(f);$('gallery').appendChild(img)})};
+</script>
+</body>
+</html>
